@@ -14,14 +14,17 @@ pub fn binary_search(items: &[i64], target: i64) -> Option<i64> {
 
     while low <= high {
         let mid = (low + high) / 2;
-        if items[mid] == target {
-            return Some(mid as i64);
+        match items[mid].cmp(&target) {
+            std::cmp::Ordering::Less => low = mid + 1,
+            std::cmp::Ordering::Greater => high = mid - 1,
+            std::cmp::Ordering::Equal => return Some(mid as i64),
         }
-        if items[mid] < target {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
-        }
+
+        // match items[mid] {
+        //     _ if items[mid] < target => low = mid + 1,
+        //     _ if items[mid] > target => high = mid - 1,
+        //     _ => return Some(mid as i64),
+        // }
     }
 
     None
