@@ -26,7 +26,7 @@ O algoritmo escolhido para este trabalho é a **Busca Binária**. Ele é utiliza
 
 - Linguagem 1 (ex: C)
 - Linguagem 2 (ex: Python)
-- Linguagem 3 (ex: Rust)
+- Rust
 
 Cada linguagem foi utilizada para implementar a mesma lógica da **Busca Binária**, respeitando as boas práticas de identação exigidas, conforme o exemplo abaixo:
 
@@ -53,7 +53,7 @@ A contagem de linhas de código foi feita com base em um comando por linha e in�
 |-----------|--------------|
 | C         | XX linhas    |
 | Python    | XX linhas    |
-| Rust      | XX linhas    |
+| Rust      | 28 linhas    |
 
 ### Facilidade de Leitura
 
@@ -86,8 +86,8 @@ O exemplo a seguir mostra a execução da Busca Binária nas três linguagens:
 │   └── binary_search_l1.ext
 ├── linguagem2/
 │   └── binary_search_l2.ext
-├── linguagem3/
-│   └── binary_search_l3.ext
+├── rust/
+│   └── binary_search.rs
 ├── resultados/
 │   ├── questionario_respostas.xlsx
 │   ├── grafico_resultado.png
