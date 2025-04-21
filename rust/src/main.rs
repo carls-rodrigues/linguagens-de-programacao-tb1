@@ -10,8 +10,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Err("Size must be non-negative".into());
     }
 
-    let array: Vec<i64> = (0..(arg_array_size + 1)).collect();
-
+    let array: Vec<i64> = (0..).step_by(4).take(arg_array_size as usize).collect();
     let time = std::time::Instant::now();
 
     let index = binary_search(&array, arg_target).unwrap_or_else(|| {
@@ -20,8 +19,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::process::exit(1);
     });
     println!(
-        "The index is: {:?} --- Item selected: {:?}",
-        index, array[index as usize]
+        "Target value: {} | Found at index: {} | Value at index: {}",
+        arg_target, index, array[index as usize]
     );
 
     println!("Elapsed time: {:.2?}", time.elapsed());
