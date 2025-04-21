@@ -24,5 +24,5 @@ pub fn binary_search(items: &[i64], target: i64) -> Option<i64> {
         }
     }
 
-    return None;
+    None
 }
