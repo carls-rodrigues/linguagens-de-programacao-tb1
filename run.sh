@@ -15,14 +15,14 @@ if [ "$1" = "python" ]; then
     echo "Add your Python compilation command here"
 elif [ "$1" = "rust" ]; then
     echo "Compiling Rust code..."
-    rustc -C opt-level=3 ./rust/binary_search.rs -o ./rust/binary_search
+    cargo build --release --manifest-path=rust/Cargo.toml --target-dir=rust/target    
     
     if [ $? -ne 0 ]; then
         echo "Compilation failed. Please check your Rust code."
         exit 1
     fi
     
-    ./rust/binary_search "${@:2}"
+    ./rust/target/release/rust "${@:2}"
 else
     echo "Invalid argument. Please specify 'python' or 'rust' as the first argument."
     exit 1
