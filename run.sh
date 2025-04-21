@@ -2,7 +2,7 @@
 
 # This script is used to run the binary_search.rs or main.py file with the specified arguments.
 # Usage: ./run.sh [args]
-# Example: ./run.sh --size 1000 --target 500
+# Example: ./run.sh --size=1000 --target=500
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided. Please provide arguments to run the script."
