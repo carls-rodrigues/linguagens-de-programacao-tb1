@@ -14,6 +14,12 @@ if [ "$1" = "python" ]; then
     echo "Compiling Python code..."
     echo "Add your Python compilation command here"
 elif [ "$1" = "rust" ]; then
+    # Check if Rust is installed
+    if ! command -v cargo &> /dev/null; then
+        echo "Rust is not installed. Please install Rust to run this script."
+        echo "Visit https://www.rust-lang.org/tools/install for installation instructions."
+        exit 1
+    fi
     echo "Compiling Rust code..."
     cargo build --release --manifest-path=rust/Cargo.toml --target-dir=rust/target    
     
