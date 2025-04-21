@@ -10,6 +10,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Err("Size must be non-negative".into());
     }
 
+    if step <= 0 {
+        return Err("Step value must be greater than zero".into());
+    }
     let array: Vec<i64> = (0..)
         .step_by(step as usize)
         .take(arg_array_size as usize)
