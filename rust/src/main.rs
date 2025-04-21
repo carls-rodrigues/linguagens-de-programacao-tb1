@@ -4,13 +4,19 @@ use args::get_args;
 use binary_search::binary_search;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let (arg_array_size, arg_target) = get_args()?;
+    let (arg_array_size, arg_target, step) = get_args()?;
 
     if arg_array_size < 0 {
         return Err("Size must be non-negative".into());
     }
 
-    let array: Vec<i64> = (0..).step_by(4).take(arg_array_size as usize).collect();
+    if step <= 0 {
+        return Err("Step value must be greater than zero".into());
+    }
+    let array: Vec<i64> = (0..)
+        .step_by(step as usize)
+        .take(arg_array_size as usize)
+        .collect();
     let time = std::time::Instant::now();
 
     let index = binary_search(&array, arg_target).unwrap_or_else(|| {
