@@ -1,40 +1,22 @@
 use clap::{Arg, Command};
 
-pub fn get_args() -> Result<(i64, i64, i64), Box<dyn std::error::Error>> {
+pub fn get_args() -> Result<i64, Box<dyn std::error::Error>> {
     let matches = Command::new("Binary Search")
         .version("1.0")
         .about("Performs binary search on a sorted range")
         .arg(
-            Arg::new("size")
-                .short('s')
-                .long("size")
-                .value_name("SIZE")
-                .help("Size of the array (non-negative integer)")
+            Arg::new("root")
+                .short('r')
+                .long("root")
+                .value_name("ROOT")
+                .help("Root of the binary tree")
                 .required(true)
-                .value_parser(clap::value_parser!(i64)),
-        )
-        .arg(
-            Arg::new("target")
-                .short('t')
-                .long("target")
-                .value_name("TARGET")
-                .help("Target number to find")
-                .required(true)
-                .value_parser(clap::value_parser!(i64)),
-        )
-        .arg(
-            Arg::new("step")
-                .short('s')
-                .long("step")
-                .value_name("WITH_STEP")
-                .help("Step size for the array (default is 1)")
-                .default_value("1")
                 .value_parser(clap::value_parser!(i64)),
         )
         .get_matches();
 
-    let array_size: i64 = *matches.get_one("size").ok_or("Size is required")?;
-    let target: i64 = *matches.get_one("target").ok_or("Target is required")?;
-    let step: i64 = *matches.get_one("step").ok_or("Step is required")?;
-    Ok((array_size, target, step))
+    let root: i64 = *matches
+        .get_one("root")
+        .ok_or("The binary tree Root is needed")?;
+    Ok(root)
 }
