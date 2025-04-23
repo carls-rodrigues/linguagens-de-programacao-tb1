@@ -1,34 +1,22 @@
 mod args;
-mod binary_search;
-use args::get_args;
-use binary_search::binary_search;
+mod binary_tree_maximum_path_sum;
+use binary_tree_maximum_path_sum::TreeNode;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let (arg_array_size, arg_target, step) = get_args()?;
+    // let (root) = get_args()?;
 
-    if arg_array_size < 0 {
-        return Err("Size must be non-negative".into());
-    }
+    let mut root = TreeNode::new(-10);
+    let node2 = TreeNode::new(9);
+    let node3 = TreeNode::new(20);
+    let node4 = TreeNode::new(15);
+    let node5 = TreeNode::new(7);
 
-    if step <= 0 {
-        return Err("Step value must be greater than zero".into());
-    }
-    let array: Vec<i64> = (0..)
-        .step_by(step as usize)
-        .take(arg_array_size as usize)
-        .collect();
-    let time = std::time::Instant::now();
+    root.left = Some(Box::new(node2));
+    root.right = Some(Box::new(node3));
+    root.right.as_mut().unwrap().left = Some(Box::new(node4));
+    root.right.as_mut().unwrap().right = Some(Box::new(node5));
 
-    let index = binary_search(&array, arg_target).unwrap_or_else(|| {
-        let message = format!("The number {} is not in the array", arg_target);
-        println!("{}", message);
-        std::process::exit(1);
-    });
-    println!(
-        "Target value: {} | Found at index: {} | Value at index: {}",
-        arg_target, index, array[index as usize]
-    );
-
-    println!("Elapsed time: {:.2?}", time.elapsed());
+    println!("TreeNode Root: {:#?}", root);
+    println!("Max path sum: {}", root.max_path_sum());
     Ok(())
 }
