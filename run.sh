@@ -29,7 +29,7 @@ elif [ "$1" = "rust" ]; then
     fi
     
     ./rust/target/release/rust "${@:2}"
-elif [ "$1" = "c"]; then
+elif [ "$1" = "c" ]; then
     # Check if C compiler is installed
     if ! command -v gcc &> /dev/null; then
         echo "C compiler is not installed. Please install a C compiler to run this script."
