@@ -23,7 +23,6 @@ def max_path_sum(root):
     dfs(root)
     return max_sum[0]
 
-# Example usage:
 if __name__ == "__main__":
     root = TreeNode(-10)
     root.left = TreeNode(9)
