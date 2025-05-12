@@ -11,8 +11,6 @@ fi
 
 if [ "$1" = "python" ]; then
     python3 python/main.py "${@:2}"
-    echo "Compiling Python code..."
-    echo "Add your Python compilation command here"
 elif [ "$1" = "rust" ]; then
     # Check if Rust is installed
     if ! command -v cargo &> /dev/null; then
