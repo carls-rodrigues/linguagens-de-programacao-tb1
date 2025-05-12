@@ -29,6 +29,21 @@ elif [ "$1" = "rust" ]; then
     fi
     
     ./rust/target/release/rust "${@:2}"
+elif [ "$1" = "c"]; then
+    # Check if C compiler is installed
+    if ! command -v gcc &> /dev/null; then
+        echo "C compiler is not installed. Please install a C compiler to run this script."
+        exit 1
+    fi
+    echo "Compiling C code..."
+    gcc -o c/binary_search c/binary_search.c
+    
+    if [ $? -ne 0 ]; then
+        echo "Compilation failed. Please check your C code."
+        exit 1
+    fi
+    
+    ./c/binary_search "${@:2}"
 else
     echo "Invalid argument. Please specify 'python' or 'rust' as the first argument."
     exit 1
