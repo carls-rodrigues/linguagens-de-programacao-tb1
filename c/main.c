@@ -46,6 +46,5 @@ int main() {
 
     printf("Max path sum: %lld\n", max_path_sum(root));
 
-    // Liberação de memória omitida por simplicidade
     return 0;
 }

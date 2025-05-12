@@ -10,7 +10,7 @@ if [ $# -eq 0 ]; then
 fi
 
 if [ "$1" = "python" ]; then
-    # python3 main.py "${@:2}"
+    python3 python/main.py "${@:2}"
     echo "Compiling Python code..."
     echo "Add your Python compilation command here"
 elif [ "$1" = "rust" ]; then

@@ -1,10 +1,8 @@
-mod args;
-mod binary_tree_maximum_path_sum;
-use binary_tree_maximum_path_sum::TreeNode;
+mod maximum_path_sum;
+
+use maximum_path_sum::TreeNode;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // let (root) = get_args()?;
-
     let mut root = TreeNode::new(-10);
     let node2 = TreeNode::new(9);
     let node3 = TreeNode::new(20);
@@ -16,7 +14,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     root.right.as_mut().unwrap().left = Some(Box::new(node4));
     root.right.as_mut().unwrap().right = Some(Box::new(node5));
 
-    println!("TreeNode Root: {:#?}", root);
     println!("Max path sum: {}", root.max_path_sum());
     Ok(())
 }

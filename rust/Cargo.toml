@@ -11,4 +11,3 @@ panic = "abort"
 
 
 [dependencies]
-clap = { version = "4.0", features = [] }
