@@ -19,8 +19,16 @@ A proposta do trabalho consiste em:
    - Facilidade de **leitura** (avaliada por meio de um questionário aplicado a colegas programadores).
 
 ## 🔢 Algoritmo Escolhido
-Foi utilizado um algoritmo **Binary Tree Maximum Path Sum**. A ideia é calcular, para cada nó, o maior ganho possível vindo de seus filhos e atualizar um valor global com a maior soma encontrada.
+Foi utilizado um algoritmo **Binary Tree Maximum Path Sum**. Este algoritmo tem como objetivo encontrar o maior caminho de soma em uma árvore binária, onde o caminho pode começar e terminar em qualquer nó. A ideia principal é calcular, para cada nó, o maior ganho possível vindo de seus filhos e atualizar um valor global com a maior soma encontrada.
 
+### Casos de Borda
+- **Árvore vazia**: Se a árvore não contém nós, a soma máxima do caminho é geralmente definida como 0 ou um valor mínimo, dependendo da implementação.
+- **Árvore com um único nó**: O maior caminho será o valor do próprio nó.
+- **Valores negativos**: O algoritmo considera que caminhos com soma negativa não contribuem para o resultado, e por isso os ignora ao calcular a soma máxima.
+
+### Complexidade
+- **Tempo**: O algoritmo percorre cada nó da árvore exatamente uma vez, resultando em uma complexidade de tempo de `O(n)`, onde `n` é o número de nós na árvore.
+- **Espaço**: A complexidade de espaço é `O(h)`, onde `h` é a altura da árvore, devido à pilha de recursão utilizada na travessia em profundidade.
 ## 💻 Linguagens Utilizadas
 
 - C
