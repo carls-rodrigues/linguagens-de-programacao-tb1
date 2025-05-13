@@ -34,14 +34,14 @@ elif [ "$1" = "c" ]; then
         exit 1
     fi
     echo "Compiling C code..."
-    gcc -o c/binary_search c/binary_search.c
+    gcc -o c/out c/main.c
     
     if [ $? -ne 0 ]; then
         echo "Compilation failed. Please check your C code."
         exit 1
     fi
     
-    ./c/binary_search "${@:2}"
+    ./c/out "${@:2}"
 else
     echo "Invalid argument. Please specify 'python' or 'rust' as the first argument."
     exit 1
